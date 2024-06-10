@@ -1,0 +1,46 @@
+{
+    "version": 6,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 28,
+        "patch": 0
+    },
+    "include": [],
+    "configurePresets": [
+        {
+            "name": "default",
+            "generator": "Ninja Multi-Config",
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "installDir": "${sourceDir}/build/${presetName}/install",
+            "cacheVariables": {
+                "CMAKE_CONFIGURATION_TYPES": "Debug;Release",
+                "CMAKE_CROSS_CONFIGS": "all",
+                "CMAKE_DEBUG_POSTFIX": "-debug"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "tiny-aes-ut",
+            "description": "Build UT",
+            "configurePreset": "default",
+            "configuration": "Debug",
+            "targets": [
+                "tiny-aes_ut"
+            ]
+        }
+    ],
+    "testPresets": [
+        {
+            "name": "default",
+            "configuration": "Debug",
+            "output": {
+                "outputOnFailure": true
+            },
+            "execution": {
+                "noTestsAction": "error",
+                "stopOnFailure": true
+            }
+        }
+    ]
+}
