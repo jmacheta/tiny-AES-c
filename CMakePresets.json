@@ -21,7 +21,7 @@
     ],
     "buildPresets": [
         {
-            "name": "tiny-aes-ut",
+            "name": "tiny-aes_ut",
             "description": "Build UT",
             "configurePreset": "default",
             "configuration": "Debug",
