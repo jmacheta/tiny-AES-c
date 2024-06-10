@@ -34,6 +34,7 @@
         {
             "name": "default",
             "configuration": "Debug",
+            "configurePreset": "default",
             "output": {
                 "outputOnFailure": true
             },
