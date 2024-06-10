@@ -1,4 +1,2 @@
-/*.o
-/test.elf
-/test.map
-test_package/build
+**/build
+CMakeUserPresets.json

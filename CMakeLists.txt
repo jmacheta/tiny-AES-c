@@ -1,17 +1,12 @@
 cmake_minimum_required(VERSION 3.12..3.29)
 
-project(tiny-aes C)
+project(tiny-aes VERSION 1.0.0)
 
-add_library(${PROJECT_NAME} "")
-target_sources(${PROJECT_NAME}
-    PRIVATE
-        ${CMAKE_CURRENT_LIST_DIR}/aes.c
-    INTERFACE
-        ${CMAKE_CURRENT_LIST_DIR}/aes.h
-        ${CMAKE_CURRENT_LIST_DIR}/aes.hpp
-)
+option(TINY_AES_TESTS "Configure test cases" OFF)
 
-target_include_directories(${PROJECT_NAME}
-    INTERFACE
-        ${CMAKE_CURRENT_LIST_DIR}
-)
+add_subdirectory(src)
+
+if (TINY_AES_TESTS OR PROJECT_IS_TOP_LEVEL)
+  enable_testing()
+  add_subdirectory(tests EXCLUDE_FROM_ALL)
+endif ()
